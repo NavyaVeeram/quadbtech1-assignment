@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useLocation } from "react-router-dom";
 
 function sanitizeHTML(html) {
   const doc = new DOMParser().parseFromString(html, 'text/html');
@@ -7,23 +8,13 @@ function sanitizeHTML(html) {
 }
 
 function DetailsPage() {
-  const [records, setRecords] = useState([]);
-
-  useEffect(() => {
-    fetch('https://api.tvmaze.com/search/shows?q=all')
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        setRecords(data);
-      })
-      .catch(err => console.log(err));
-  }, []);
-
+  let { state } = useLocation();
+  const [records, setRecords] = useState([state.records]);
   return (
     <>
       <div className="container w-100">
         <div>
-          {records.map((list, index) => (
+          {records && records?.map((list, index) => (
              <div className="container bg-light p-3 d-flex">
               <div className="image">
              {list.show.image && list.show.image.medium ? (

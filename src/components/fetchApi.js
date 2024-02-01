@@ -35,13 +35,12 @@ function FetchAPI() {
                 <p className="card-text" style={{ fontFamily: 'poppins' }}>{list.show.genres}</p>
                 <p className="card-text" style={{ fontFamily: 'poppins' }}>{list.show.status}</p>
                 <p className="card-text" style={{ fontFamily: 'poppins' }}>{list.show.rating?.average}</p>
-                <Link
-  to={`/detailspage`} 
-  className="btn btn-primary"
- 
->
-  view more
-</Link>
+                <Link to={`/detailspage`} 
+                className="btn btn-primary"
+                state={{ records: list }}
+                >
+              view more
+            </Link>
 
   
               </div>
