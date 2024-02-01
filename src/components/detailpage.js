@@ -14,7 +14,7 @@ function DetailsPage() {
     <>
       <div className="container w-100">
         <div>
-          {records && records?.map((list, index) => (
+          {records && records?.map((list) => (
              <div className="container bg-light p-3 d-flex">
               <div className="image">
              {list.show.image && list.show.image.medium ? (
