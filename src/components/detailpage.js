@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useLocation } from "react-router-dom";
 
@@ -9,7 +9,7 @@ function sanitizeHTML(html) {
 
 function DetailsPage() {
   let { state } = useLocation();
-  const [records, setRecords] = useState([state.records]);
+  const [records] = useState([state.records]);
   return (
     <>
       <div className="container w-100">
